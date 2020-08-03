@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require './lib/top_shows'
+
 TopShows::CLI.new.call

@@ -1,6 +1,9 @@
-require "top_shows/version"
+# require "top_shows/version"
+require_relative "./top_shows/version"
 
-module TopShows
-  class Error < StandardError; end
+# module TopShows
+#   class Error < StandardError; end
   # Your code goes here...
-end
+
+require_relative './top_shows/cli'
+
