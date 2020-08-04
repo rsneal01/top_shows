@@ -9,9 +9,8 @@ class TopShows::CLI
   end
   
   def list_shows
-    puts "Top rated TV shows on rotten tomoatoes:"
-    puts "1. The Umbrella Academy: Season 1"
-    puts "2. P-Valley: Season 1" 
+    puts "Current top rated shows:"
+    @shows = TopShows::Shows.all
   end
   
   def more_info
