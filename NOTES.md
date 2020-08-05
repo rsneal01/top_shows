@@ -29,3 +29,8 @@ a show has a URL
   a show has a description
   a show has an audience score
   
+  Scraper class:
+  
+  go to rottentomatoes
+  extract the properties
+  instantiate a show object
