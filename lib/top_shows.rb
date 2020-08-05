@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
+# require 'pry'
 
 require_relative "./top_shows/version"
 require_relative './top_shows/shows'
