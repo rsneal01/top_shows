@@ -18,13 +18,11 @@ class TopShows::CLI
     while input != "exit"
     puts "Enter list number for more info about that show, type list for all shows, or type exit:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Description for show #1"
-      when "2"
-        puts "Description for show #2"
-      when "list"
-        list_shows
+      if input.to_i > 0
+      show = @shows[input.to_i-1]
+        puts "#{show.name}"
+      elsif input == "list"
+        list_deals
       else 
         puts "Unknown command, please type valid show number, list, or exit"
       end
