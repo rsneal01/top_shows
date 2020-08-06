@@ -10,6 +10,7 @@ class TopShows::Shows
   def self.scrape_shows
     shows = []
     shows << self.scrape_rt
+    shows << self.scrape_imdb
   end
     
   def self.scrape_imdb
@@ -17,6 +18,7 @@ class TopShows::Shows
     
     show_1 = self.new
     show_1.name = doc.css("td.titleColumn").first.text
+    # should return: 1. Planet Earth II (2016)
     show_1.critic_score = 
     show_1.
     show_1.url = 
