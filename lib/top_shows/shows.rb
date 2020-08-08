@@ -65,12 +65,11 @@ class TopShows::Shows
     scraped_show_array
     
     
-    # 1st iteration attempt
+    # 1st scrape_imdb iteration attempt
     
-   
-    # should this instantiation go insdide our iteration?
+    # should this instantiation go inside our iteration?
     top_five_shows = show.first(5)
-    
+    scraped_shows_imbd = []
     
     top_five_shows.each do |show|
        scraped_show = self.new
@@ -78,11 +77,13 @@ class TopShows::Shows
        scraped_show.title = show.css("td.titleColumn").text
        scraped_show.score = show.css("strong").text
        scraped_show.url = show.css("td.titleColumn a").attr("href")
+       scraped_shows_imbd << scraped_show
      end
-     
+     scraped_shows_imbd
+   end
        
        
-      # another iteration attempt
+      # 2nd scrape_imdb iteration attempt
       
     top_five_titles = show_title.first(5)
     top_five_scores = show_score.first(5)
