@@ -1,7 +1,7 @@
 class TopShows::Shows
   
   
-  attr_accessor :name, :score, :certified_fresh, :url
+  attr_accessor :title, :score, :certified_fresh, :url
   
   def self.all_shows
     self.scrape_shows
@@ -25,37 +25,37 @@ class TopShows::Shows
     # assign each show attributes individually?
     
     show_1 = self.new
-    show_1.name = show_title[0].text
+    show_1.title = show_title[0].text
     # should return: 1. Planet Earth II (2016)
     show_1.score = show_score[0].text
     show_1.url = show_url[0].attr("href")
     
     show_2 = self.new
-    show_2.name = show_title[1].text
+    show_2.title = show_title[1].text
     # should return: 1. Planet Earth II (2016)
     show_2.score = show_score[1].text
     show_2.url = show_url[1].attr("href")
     
     show_3 = self.new
-    show_3.name = show_title[2].text
+    show_3.title = show_title[2].text
     # should return: 1. Planet Earth II (2016)
     show_3.score = show_score[2].text
     show_3.url = show_url[2].attr("href")
     
     show_3 = self.new
-    show_3.name = show_title[2].text
+    show_3.title = show_title[2].text
     # should return: 1. Planet Earth II (2016)
     show_3.score = show_score[2].text
     show_3.url = show_url[2].attr("href")
     
     show_4 = self.new
-    show_4.name = show_title[3].text
+    show_4.title = show_title[3].text
     # should return: 1. Planet Earth II (2016)
     show_4.score = show_score[3].text
     show_4.url = show_url[3].attr("href")
     
     show_5 = self.new
-    show_5.name = show_title[4].text
+    show_5.title = show_title[4].text
     # should return: 1. Planet Earth II (2016)
     show_5.score = show_score[4].text
     show_5.url = show_url[4].attr("href")
@@ -65,21 +65,31 @@ class TopShows::Shows
     scraped_show_array
     
     
-    # or assign with iteration?
+    # 1st iteration attempt
     
    
     # should this instantiation go insdide our iteration?
     top_five_shows = show.first(5)
+    
+    
+    top_five_shows.each do |show|
+       scraped_show = self.new
+      # should this be outside of iteration?
+       scraped_show.title = show.css("td.titleColumn").text
+       scraped_show.score = show.css("strong").text
+       scraped_show.url = show.css("td.titleColumn a").attr("href")
+     end
+     
+       
+       
+      # another iteration attempt
+      
     top_five_titles = show_title.first(5)
     top_five_scores = show_score.first(5)
     top_five_urls = show_url.first(5)
     
-    top_five_shows.each do |show|
-       scraped_show = self.new
-       
-    
     top_five_titles.each do |title|
-      scraped_show.name = title.text
+      scraped_show.title = title.text
     end
     top_five_scores.each do |score|
       scraped_show.score = score.text
