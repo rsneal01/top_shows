@@ -9,9 +9,9 @@ class TopShows::Shows
     @url = url
   end
 
-  # def self.all_shows
-  #   self.scrape_shows
-  # end
+  def self.all
+    self.scrape_imdb
+  end
   
   # def self.scrape_shows
   #   shows = []
@@ -76,6 +76,7 @@ class TopShows::Shows
       self.new(show.css("td.titleColumn").text, show.css("strong").text, show.css("td.titleColumn a").attr("href"))
     end
     scraped_shows_imbd
+  end
   
     
     # 2nd scrape_imdb attempt
