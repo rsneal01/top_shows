@@ -27,11 +27,13 @@ class TopShows::CLI
       input = gets.strip.downcase
     
       if input.to_i.between?(1,5)
-      puts "#{@shows[input.to_i - 1].title}, score: #{@shows[input.to_i - 1].score}, url: #{@shows[input.to_i - 1].url}"
+      puts "#{@shows[input.to_i - 1].title}, score: #{@shows[input.to_i - 1].score}, url: #{@shows[input.to_i - 1].url}, description: #{@shows[input.to_i - 1].description}"
       elsif input == "list"
-      list_shows
+        list_shows
+      elsif input == "exit"
+        break
       else 
-      puts "Unknown command, please type valid show number, list, or exit"
+        puts "Unknown command, please type valid show number, list, or exit"
       end
     end
   end

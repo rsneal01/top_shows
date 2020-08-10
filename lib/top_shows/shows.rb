@@ -1,11 +1,13 @@
+
 class TopShows::Shows
   
-  attr_accessor :title, :score, :url
+  attr_accessor :title, :score, :url, :description
   
   def initialize(title, score, url)
     @title = title
     @score = score
     @url = url
+
   end
 
   def self.all
@@ -18,7 +20,7 @@ class TopShows::Shows
     show = doc.css("tbody.lister-list tr")
     show_title = doc.css("td.titleColumn")
     show_score = doc.css("strong")
-    show_url = doc.css("td.titleColumn a")
+    show_url = show.css("td.titleColumn a").attr("href")
     
     # 1st scrape_imdb iteration attempt
     
@@ -30,6 +32,16 @@ class TopShows::Shows
     scraped_shows_imdb
   end
   
+
+    
+  def self.scraped_shows_imdb_description
+    # opens the shows url, selects the description, assigns it to the object's description attribute
+      
+    self.all.each do |show|
+      self.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
+    end
+  end
+    
 end
     
     # attempt without iteration, and with no instantiaion args
