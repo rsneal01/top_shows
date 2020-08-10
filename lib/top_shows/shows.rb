@@ -27,7 +27,7 @@ class TopShows::Shows
     scraped_shows_imdb = top_five_shows.map do |show|
       self.new(show.css("td.titleColumn").text, show.css("strong").text, show.css("td.titleColumn a").attr("href"))
     end
-    scraped_shows_imbd
+    scraped_shows_imdb
   end
   
 end

@@ -37,21 +37,23 @@ class TopShows::CLI
   end
     
     # 2nd attempt
-    input = nil
-    while input != "exit"
-      puts "Enter list number for more info about that show, type list for all shows, or type exit:"
-      input = gets.strip.downcase
+  #   input = nil
+  #   while input != "exit"
+  #     puts "Enter list number for more info about that show, type list for all shows, or type exit:"
+  #     input = gets.strip.downcase
       
-      if input.to_i > 0
-      show = @shows[input.to_i-1]
-        puts "#{show.title}"
-      elsif input == "list"
-        list_shows
-      else 
-        puts "Unknown command, please type valid show number, list, or exit"
-      end
-    end
-  end
+  #     if input.to_i > 0
+  #     show = @shows[input.to_i-1]
+  #       puts "#{show.title} score: #{@shows[input.to_i - 1].score}, url: #{@shows[input.to_i - 1].url}"
+  #     elsif input == "list"
+  #       list_shows
+  #     elsif input == "exit"
+  #       break
+  #     else 
+  #       puts "Unknown command, please type valid show number, list, or exit"
+  #     end
+  #   end
+  # end
   
   def goodbye
     puts "Goodbye"
