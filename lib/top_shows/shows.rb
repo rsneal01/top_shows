@@ -1,7 +1,9 @@
-
+require 'pry'
 class TopShows::Shows
   
   attr_accessor :title, :score, :url, :description
+  
+  @@all = []
   
   def initialize(title, score, url)
     @title = title
@@ -11,6 +13,8 @@ class TopShows::Shows
   end
 
   def self.all
+    # @@all
+    # self.scraped_shows_imdb_description(self.scrape_imdb)
     self.scrape_imdb
   end
   
@@ -29,17 +33,22 @@ class TopShows::Shows
     scraped_shows_imdb = top_five_shows.map do |show|
       self.new(show.css("td.titleColumn").text, show.css("strong").text, show.css("td.titleColumn a").attr("href"))
     end
+    # @@all << scraped_shows_imdb
     scraped_shows_imdb
   end
   
 
-    
   def self.scraped_shows_imdb_description
     # opens the shows url, selects the description, assigns it to the object's description attribute
-      
+    
     self.all.each do |show|
-      self.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
+      show.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
     end
+    
+  # def self.scraped_shows_imdb_description(shows)
+  #   shows.map do |show|
+  #     show.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
+  #   end
   end
     
 end
