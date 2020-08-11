@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Bobby Neal'"]
   spec.email         = ["'rsneal01@gmail.com'"]
 
-  spec.summary       = %q{descrip}
-  spec.description   = %q{long descrip}
+  spec.summary       = %q{"This TopShows gem outputs a list of top rated shows from imdb, prompts the user for input to learn more about a show, and then returns information about the chosen show's rating score, url, and plot description" }
+  # spec.description   = %q{long descrip}
   spec.homepage      = "https://github.com/rsneal01/top_shows"
   spec.license       = "MIT"
 
