@@ -14,8 +14,11 @@ class TopShows::Shows
 
   def self.all
     # @@all
-    # self.scraped_shows_imdb_description(self.scrape_imdb)
-    self.scrape_imdb
+    # self.scrape_imdb
+    
+    updated_shows = self.scraped_shows_imdb_description(self.scrape_imdb)
+    updated_shows
+      # takes array of scraped show objects as argument, calls .map over them, selects show description from each url, returns new array with added description attributes
   end
   
     
@@ -38,17 +41,17 @@ class TopShows::Shows
   end
   
 
-  def self.scraped_shows_imdb_description
+  # def self.scraped_shows_imdb_description
     # opens the shows url, selects the description, assigns it to the object's description attribute
     
-    self.all.each do |show|
-      show.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
-    end
+    # self.all.each do |show|
+    #   show.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
+    # end
     
-  # def self.scraped_shows_imdb_description(shows)
-  #   shows.map do |show|
-  #     show.description = Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip
-  #   end
+  def self.scraped_shows_imdb_description(shows)
+    shows.each do |show|
+      show.description = Nokogiri::HTML(open("https://www.imdb.com#{show.url}")).css("div.summary_text").text.strip
+    end
   end
     
 end
@@ -61,6 +64,7 @@ end
     # show_1.score = show_score[0].text
     # show_1.url = show_url[0].attr("href")
     
+  
     # show_2 = self.new
     # show_2.title = show_title[1].text
     # # should return: 1. Planet Earth II (2016)
