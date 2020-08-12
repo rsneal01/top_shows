@@ -23,11 +23,12 @@ class TopShows::CLI
     # 1st attempt
     input = nil
     until input == "exit"
-      puts "Enter list number for more info about that show, type list for all shows, or type exit:"
+      puts "
+      Enter list number for more info about a show, type list for all shows, or type exit:"
       input = gets.strip.downcase
     
       if input.to_i.between?(1,5)
-      puts "#{@shows[input.to_i - 1].title}, score: #{@shows[input.to_i - 1].score}, url: #{@shows[input.to_i - 1].url}, description: #{@shows[input.to_i - 1].description}"
+      puts "#{@shows[input.to_i - 1].title} Score: #{@shows[input.to_i - 1].score}, URL: https://www.imdb.com#{@shows[input.to_i - 1].url}, Description: #{@shows[input.to_i - 1].description}"
       elsif input == "list"
         list_shows
       elsif input == "exit"
