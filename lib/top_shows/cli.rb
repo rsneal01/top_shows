@@ -34,7 +34,8 @@ class TopShows::CLI
       elsif input == "exit"
         break
       else 
-        puts "Unknown command, please type valid show number, list, or exit"
+        puts "
+        Unknown command, please type valid show number, list, or exit"
       end
     end
   end

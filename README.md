@@ -2,7 +2,7 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_shows`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+This TopShows gem lists the top 5 rated TV shows from imdb.com and then prompts the user to input a list number to learn more about that show.  Using scraped data, this program creates show objects with several attributes, and then prints this information for the user about their selected show.
 
 ## Installation
 
@@ -23,6 +23,8 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+After installing gem, run bin/top-shows to trigger a CLI call and begin the program.  Follow printed instructions to continue executing commands.
 
 ## Development
 
