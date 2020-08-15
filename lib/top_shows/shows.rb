@@ -6,6 +6,7 @@ class TopShows::Shows
   @@all = []
   
   def initialize(title, score, url)
+  # def initialize(title, score, url, description)
     @title = title
     @score = score
     @url = url
@@ -33,6 +34,10 @@ class TopShows::Shows
     
     scraped_shows_imdb = top_five_shows.map do |show|
       self.new(show.css("td.titleColumn").text, show.css("strong").text, show.css("td.titleColumn a").attr("href"))
+      
+      # can we initialize with description attribute and thus have no need for scraped_shows_imdb_description method?
+      # self.new(show.css("td.titleColumn").text, show.css("strong").text, show.css("td.titleColumn a").attr("href"), Nokogiri::HTML(open(show.url)).css("div.summary_text").text.strip)
+      
     end
     # @@all << scraped_shows_imdb
     scraped_shows_imdb
