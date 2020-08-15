@@ -13,12 +13,10 @@ class TopShows::Shows
   end
 
   def self.all
-    # @@all
-    # self.scrape_imdb
-    
     updated_shows = self.scraped_shows_imdb_description(self.scrape_imdb)
     updated_shows
       # takes array of scraped show objects as argument, calls .map over them, selects show description from each url, returns new array with added description attributes
+    # @@all
   end
   
     
