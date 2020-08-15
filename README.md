@@ -2,7 +2,13 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_shows`. To experiment with that code, run `bin/console` for an interactive prompt.
 
+Description: 
+
 This TopShows gem lists the top 5 rated TV shows from imdb.com and then prompts the user to input a list number to learn more about that show.  Using scraped data, this program creates show objects with several attributes, and then prints this information for the user about their selected show.
+
+Pain point:
+
+This app could help the user by providing a simplfied and condensed look at tv show reviews.  Not only does this app provide the user an easy and minimal interface to access show information without navigating through several different URLS, it also cuts down a huge list of 250 shows to only 5 shows, which have been filtered by highest rating, in descending order.
 
 ## Installation
 
