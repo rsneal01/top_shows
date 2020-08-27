@@ -10,17 +10,19 @@ class TopShows::Shows
     @title = title
     @score = score
     @url = url
-
+    @@all << self
   end
+  
 
   def self.all
+    # we are rescraping everytime, this method should just return @@all
+    
     updated_shows = self.scraped_shows_imdb_description(self.scrape_imdb)
     updated_shows
       # takes array of scraped show objects as argument, calls .map over them, selects show description from each url, returns new array with added description attributes
     # @@all
   end
   
-    
   def self.scrape_imdb
     doc = Nokogiri::HTML(open("https://www.imdb.com/chart/toptv?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=4da9d9a5-d299-43f2-9c53-f0efa18182cd&pf_rd_r=3J64KKA7W3EK66X8KA27&pf_rd_s=right-4&pf_rd_t=15506&pf_rd_i=tvmeter&ref_=chttvm_ql_6"))
     show = doc.css("tbody.lister-list tr")

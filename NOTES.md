@@ -1,5 +1,11 @@
 Building my gem:
 
+notes from project review:
+scraping should be done in its own class
+show class responsible for creating and holding data
+scraper gets data passes to show class
+cli class displays/interacts with user
+
 1. project structure
 2. entry point - file run
 3. force that to run CLI

@@ -28,6 +28,7 @@ class TopShows::CLI
       input = gets.strip.downcase
     
       if input.to_i.between?(1,5)
+        # variable here for show
       puts "#{@shows[input.to_i - 1].title} Score: #{@shows[input.to_i - 1].score}, URL: https://www.imdb.com#{@shows[input.to_i - 1].url}, Description: #{@shows[input.to_i - 1].description}"
       elsif input == "list"
         list_shows
@@ -61,6 +62,12 @@ class TopShows::CLI
   
   def goodbye
     puts "Goodbye"
+  end
+  
+  def greeting
+   @@all.map do |show|
+     show.name 
+   end
   end
   
 end
