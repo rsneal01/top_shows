@@ -12,9 +12,6 @@ class TopShows::CLI
   def list_shows
     puts "Current top rated shows:"
     @shows = TopShows::Shows.all
-    # @shows should return an array of all Shows objects with attributes of title, score, and url
-    # @shows.each do |show, i|
-    #   puts "#{i}. #{show.title}"
     @shows.each do |show|
       puts "#{show.title}"
     end
@@ -27,10 +24,11 @@ class TopShows::CLI
       puts "
       Enter list number for more info about a show, type list for all shows, or type exit:"
       input = gets.strip.downcase
-    
+      show = @shows[input.to_i-1]
       if input.to_i.between?(1,5)
         # variable here for show
-      puts "#{@shows[input.to_i - 1].title} Score: #{@shows[input.to_i - 1].score}, URL: https://www.imdb.com#{@shows[input.to_i - 1].url}, Description: #{@shows[input.to_i - 1].description}"
+        
+      puts "#{show.title} Score: #{show.score}, URL: https://www.imdb.com#{show.url}, Description: #{show.description}"
       elsif input == "list"
         list_shows
       elsif input == "exit"
