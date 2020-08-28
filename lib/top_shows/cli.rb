@@ -63,10 +63,10 @@ class TopShows::CLI
     puts "Goodbye"
   end
   
-  def greeting
-   @@all.map do |show|
-     show.name 
-   end
-  end
+  # def greeting
+  # @@all.map do |show|
+  #   show.name 
+  # end
+  # end
   
 end
