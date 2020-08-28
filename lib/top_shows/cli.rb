@@ -2,7 +2,8 @@
 
 class TopShows::CLI
   
-  def call 
+  def call
+    TopShows::Scraper.scrape
     list_shows
     more_info
     goodbye
